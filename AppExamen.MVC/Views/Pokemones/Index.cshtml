@@ -1,0 +1,107 @@
+﻿@model IEnumerable<AppExamen.Entidades.Pokemon>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ataque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Defensa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ataque_Especial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Defensa_Especial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Velocidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NaturalezaId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ataque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defensa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ataque_Especial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defensa_Especial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Velocidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaturalezaId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
