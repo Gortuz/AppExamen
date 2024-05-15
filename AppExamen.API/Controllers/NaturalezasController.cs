@@ -24,14 +24,14 @@ namespace AppExamen.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Naturaleza>>> GetNaturaleza()
         {
-            return await _context.Naturalezas.ToListAsync();
+            return await _context.Naturaleza.ToListAsync();
         }
 
         // GET: api/Naturalezas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Naturaleza>> GetNaturaleza(int id)
         {
-            var naturaleza = await _context.Naturalezas.FindAsync(id);
+            var naturaleza = await _context.Naturaleza.FindAsync(id);
 
             if (naturaleza == null)
             {
@@ -77,7 +77,7 @@ namespace AppExamen.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Naturaleza>> PostNaturaleza(Naturaleza naturaleza)
         {
-            _context.Naturalezas.Add(naturaleza);
+            _context.Naturaleza.Add(naturaleza);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetNaturaleza", new { id = naturaleza.Id }, naturaleza);
@@ -87,13 +87,13 @@ namespace AppExamen.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNaturaleza(int id)
         {
-            var naturaleza = await _context.Naturalezas.FindAsync(id);
+            var naturaleza = await _context.Naturaleza.FindAsync(id);
             if (naturaleza == null)
             {
                 return NotFound();
             }
 
-            _context.Naturalezas.Remove(naturaleza);
+            _context.Naturaleza.Remove(naturaleza);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +101,7 @@ namespace AppExamen.API.Controllers
 
         private bool NaturalezaExists(int id)
         {
-            return _context.Naturalezas.Any(e => e.Id == id);
+            return _context.Naturaleza.Any(e => e.Id == id);
         }
     }
 }

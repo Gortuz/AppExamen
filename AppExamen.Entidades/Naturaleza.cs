@@ -12,8 +12,8 @@ namespace AppExamen.Entidades
     {
         [Key]
         public int Id { get; set; } //PK
+        [DisplayName("Nombre de la naturaleza")]
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public List<Pokemon>? Pokemones { get; set; }
     }
 }

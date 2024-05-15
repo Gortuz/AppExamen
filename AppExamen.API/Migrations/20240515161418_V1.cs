@@ -11,7 +11,7 @@ namespace AppExamen.API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Naturalezas",
+                name: "Naturaleza",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -44,7 +44,7 @@ namespace AppExamen.API.Migrations
                     table.ForeignKey(
                         name: "FK_Pokemon_Naturaleza_NaturalezaId",
                         column: x => x.NaturalezaId,
-                        principalTable: "Naturalezas",
+                        principalTable: "Naturaleza",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -62,7 +62,7 @@ namespace AppExamen.API.Migrations
                 name: "Pokemon");
 
             migrationBuilder.DropTable(
-                name: "Naturalezas");
+                name: "Naturaleza");
         }
     }
 }

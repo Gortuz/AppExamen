@@ -24,14 +24,22 @@ namespace AppExamen.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pokemon>>> GetPokemon()
         {
-            return await _context.Pokemon.ToListAsync();
+            //return await _context.Pokemon.ToListAsync();
+            var pokemon = await _context.Pokemon
+                .Include(n => n.Naturaleza)
+                .ToListAsync();
+            return pokemon;
         }
 
         // GET: api/Pokemones/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Pokemon>> GetPokemon(int id)
         {
-            var pokemon = await _context.Pokemon.FindAsync(id);
+            var pokemon = await _context.Pokemon
+                .Include(n => n.Naturaleza)
+                .Where(n => n.Id == id)
+                .FirstOrDefaultAsync();
+
 
             if (pokemon == null)
             {
