@@ -12,13 +12,14 @@ namespace AppExamen.MVC.Controllers
 
         public PokemonesController(IConfiguration configuration)
         {
-            urlApi = configuration.GetValue("ApiUrlBase", "").ToString() + "/Empleados";
+            urlApi = configuration.GetValue("ApiUrlBase", "").ToString() + "/Pokemones";
             //this.urlBase = configuration.GetValue("ApiUrlBase", "").ToString();
         }
         
         // GET: PokemonesController
         public ActionResult Index()
         {
+
             var data = Crud<Pokemon>.Read(urlApi);
             return View(data);
         }

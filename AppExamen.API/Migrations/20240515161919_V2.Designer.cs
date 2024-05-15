@@ -96,7 +96,7 @@ namespace AppExamen.API.Migrations
             modelBuilder.Entity("AppExamen.Entidades.Pokemon", b =>
                 {
                     b.HasOne("AppExamen.Entidades.Naturaleza", "Naturaleza")
-                        .WithMany("Pokemones")
+                        .WithMany("Pokemon")
                         .HasForeignKey("NaturalezaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -106,7 +106,7 @@ namespace AppExamen.API.Migrations
 
             modelBuilder.Entity("AppExamen.Entidades.Naturaleza", b =>
                 {
-                    b.Navigation("Pokemones");
+                    b.Navigation("Pokemon");
                 });
 #pragma warning restore 612, 618
         }

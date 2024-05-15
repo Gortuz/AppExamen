@@ -11,7 +11,7 @@ namespace AppExamen.MVC.Controllers
         private string urlApi;
         public NaturalezasController(IConfiguration configuration)
         {
-            urlApi = configuration.GetValue("ApiUrlBase", "").ToString() + "/Empleados";
+            urlApi = configuration.GetValue("ApiUrlBase", "").ToString() + "/Naturalezas";
             //this.urlBase = configuration.GetValue("ApiUrlBase", "").ToString();
         }
 
@@ -19,14 +19,14 @@ namespace AppExamen.MVC.Controllers
         public ActionResult Index()
         {
             var data = Crud<Naturaleza>.Read(urlApi);
-            return View();
+            return View(data);
         }
 
         // GET: NaturalezasController/Details/5
         public ActionResult Details(int id)
         {
             var data = Crud<Naturaleza>.Read_ById(urlApi, id);
-            return View();
+            return View(data);
         }
 
         // GET: NaturalezasController/Create
@@ -56,7 +56,7 @@ namespace AppExamen.MVC.Controllers
         public ActionResult Edit(int id)
         {
             var data = Crud<Naturaleza>.Read_ById(urlApi, id);
-            return View();
+            return View(data);
         }
 
         // POST: NaturalezasController/Edit/5

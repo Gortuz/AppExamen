@@ -12,7 +12,7 @@ using AppExamen.Entidades;
         {
         }
 
-        public DbSet<AppExamen.Entidades.Naturaleza> Naturaleza { get; set; } = default!;
+        public DbSet<AppExamen.Entidades.Naturaleza> Naturalezas { get; set; } = default!;
 
-public DbSet<AppExamen.Entidades.Pokemon> Pokemon { get; set; } = default!;
+        public DbSet<AppExamen.Entidades.Pokemon> Pokemon { get; set; } = default!;
     }
