@@ -2,6 +2,7 @@
 using AppExamen.Entidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppExamen.MVC.Controllers
@@ -9,13 +10,20 @@ namespace AppExamen.MVC.Controllers
     public class PokemonesController : Controller
     {
         private string urlApi;
+        private string urlBase;
 
         public PokemonesController(IConfiguration configuration)
         {
             urlApi = configuration.GetValue("ApiUrlBase", "").ToString() + "/Pokemones";
-            //this.urlBase = configuration.GetValue("ApiUrlBase", "").ToString();
+            this.urlBase = configuration.GetValue("ApiUrlBase", "").ToString();
         }
-        
+
+        private Naturaleza[] ObtenerListaNaturalezas()
+        {
+
+            return Crud<Naturaleza>.Read(urlBase + "/Naturalezas");
+        }
+
         // GET: PokemonesController
         public ActionResult Index()
         {
@@ -34,6 +42,11 @@ namespace AppExamen.MVC.Controllers
         // GET: PokemonesController/Create
         public ActionResult Create()
         {
+            ViewBag.Naturalezas = ObtenerListaNaturalezas().Select(d => new SelectListItem
+            {
+                Value = d.Id.ToString(),
+                Text = d.Nombre
+            }).ToList();
             return View();
         }
 
@@ -57,6 +70,11 @@ namespace AppExamen.MVC.Controllers
         // GET: PokemonesController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.Naturalezas = ObtenerListaNaturalezas().Select(d => new SelectListItem
+            {
+                Value = d.Id.ToString(),
+                Text = d.Nombre
+            }).ToList();
             var data = Crud<Pokemon>.Read_ById(urlApi, id);
             return View(data);
         }

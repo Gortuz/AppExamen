@@ -72,10 +72,10 @@
                 <input asp-for="Tipo_2" class="form-control" />
                 <span asp-validation-for="Tipo_2" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label asp-for="NaturalezaId" class="control-label"></label>
-                <input asp-for="NaturalezaId" class="form-control" />
-                <span asp-validation-for="NaturalezaId" class="text-danger"></span>
+                <select asp-for="NaturalezaId" asp-items="ViewBag.Naturalezas" class="form-control" required></select>
+                <span asp-validation-for="NaturalezaId" class="text-danger text-black"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
