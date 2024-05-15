@@ -9,12 +9,9 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped table-hover table-bordered">
+    <thead class=" table-dark">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
@@ -43,13 +40,15 @@
                 @Html.DisplayNameFor(model => model.Velocidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tipo_1)
+                @* @Html.DisplayNameFor(model => model.Tipo_1) *@
+                Tipo 1
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tipo_2)
+                @* @Html.DisplayNameFor(model => model.Tipo_2) *@
+                Tipo 2
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NaturalezaId)
+                @Html.DisplayNameFor(model => model.Naturaleza)
             </th>
             <th></th>
         </tr>
@@ -57,9 +56,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>

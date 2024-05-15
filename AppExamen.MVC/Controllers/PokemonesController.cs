@@ -36,7 +36,7 @@ namespace AppExamen.MVC.Controllers
         public ActionResult Details(int id)
         {
             var data = Crud<Pokemon>.Read_ById(urlApi, id);
-            return View();
+            return View(data);
         }
 
         // GET: PokemonesController/Create
